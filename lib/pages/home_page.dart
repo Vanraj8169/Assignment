@@ -20,9 +20,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final int days = 30;
 
-  final String name = "GadgetHive";
+  final String name = "E-Commerce";
 
-  final url = "https://vanraj8169.github.io/gadgethivejson/catalog.json";
+  final url = "https://fakestoreapi.com/products";
 
   List<Item> filteredItems = [];
   bool isLoading = true;
@@ -38,8 +38,8 @@ class _HomePageState extends State<HomePage> {
 
     final response = await http.get(Uri.parse(url));
     final catalogJson = response.body;
-    final decodedData = jsonDecode(catalogJson);
-    var productsData = decodedData["products"];
+    // final decodedData = jsonDecode(catalogJson);
+    var productsData = jsonDecode(catalogJson);
 
     CatalogModel.items = List.from(productsData)
         .map<Item>((item) => Item.fromMap(item))
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       filteredItems = CatalogModel.items
           .where((element) =>
-          element.name!.toLowerCase().contains(value.toLowerCase()))
+              element.title!.toLowerCase().contains(value.toLowerCase()))
           .toList();
     });
   }
@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                       borderRadius: BorderRadius.circular(8.0),
                       borderSide: BorderSide.none,
                     ),
-                    hintText: "eg: iPhone 14 Pro max",
+                    hintText: "eg: Men's Clothing",
                     prefixIcon: Icon(Icons.search),
                     prefixIconColor: Colors.purple.shade900,
                   ),
@@ -113,12 +113,13 @@ class _HomePageState extends State<HomePage> {
                     child: ListView.builder(
                       itemCount: filteredItems.length,
                       itemBuilder: (context, index) {
-                        final catalog = filteredItems[index];
+                        final catalog = filteredItems[index.toInt()];
                         return InkWell(
                           onTap: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => HomeDetailPage(catalog: catalog))
-                          ),
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      HomeDetailPage(catalog: catalog))),
                           child: CatalogItem(catalog: catalog),
                         );
                       },

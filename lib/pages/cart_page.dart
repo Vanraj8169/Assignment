@@ -197,7 +197,7 @@ class _CartList extends StatelessWidget {
                 icon: Icon(Icons.remove_circle_outline),
                 onPressed: () => RemoveMutation(_cart.items[index]),
               ),
-              title: _cart.items[index].name.text.make(),
+              title: _cart.items[index].title.text.make(),
             ),
           );
   }

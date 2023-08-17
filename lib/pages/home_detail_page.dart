@@ -45,11 +45,11 @@ class HomeDetailPage extends StatelessWidget {
                     width: context.screenWidth,
                     child: Column(
                       children: [
-                        catalog.name.text.xl4
+                        catalog.title.text.xl4
                             .color(context.accentColor)
                             .bold
                             .make(),
-                        catalog.desc.text.textStyle(context.captionStyle).xl.make(),
+                        catalog.category.text.textStyle(context.captionStyle).xl.make(),
                         10.heightBox,
                        catalog.description
                             .text

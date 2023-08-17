@@ -11,30 +11,30 @@ class CatalogModel {
 
 class Item {
   final int id;
-  final String name;
-  final String desc;
+  final String title;
+  final String category;
   final num price;
-  final String color;
+  // final String color;
   final String image;
   final String description;
 
-  Item(this.id, this.name, this.desc, this.price, this.color, this.image,
+  Item(this.id, this.title, this.category, this.price, this.image,
       this.description);
 
   Item copyWith(
     int id,
-    String name,
-    String desc,
+    String title,
+    String category,
     num price,
-    String color,
+    // String color,
     String image,
   ) {
     return Item(
       id ?? this.id,
-      name ?? this.name,
-      desc ?? this.desc,
+      title ?? this.title,
+      category ?? this.category,
       price ?? this.price,
-      color ?? this.color,
+      // color ?? this.color,
       image ?? this.image,
       description ?? this.description
     );
@@ -43,10 +43,10 @@ class Item {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'name': name,
-      'desc': desc,
+      'title': title,
+      'category': category,
       'price': price,
-      'color': color,
+      // 'color': color,
       'image': image,
       'description': description
     };
@@ -55,10 +55,10 @@ class Item {
   factory Item.fromMap(Map<String, dynamic> map) {
     return Item(
       map['id'],
-      map['name'],
-      map['desc'],
+      map['title'],
+      map['category'],
       map['price'],
-      map['color'],
+      // map['color'],
       map['image'],
       map['description']
     );
@@ -70,7 +70,7 @@ class Item {
 
   @override
   String toString() {
-    return 'Item(id: $id, name: $name, desc: $desc, price: $price, color: $color, image: $image, description: $description)';
+    return 'Item(id: $id, title: $title, category: $category, price: $price, image: $image, description: $description)';
   }
 
   @override
@@ -79,10 +79,10 @@ class Item {
 
     return o is Item &&
         o.id == id &&
-        o.name == name &&
-        o.desc == desc &&
+        o.title == title &&
+        o.category == category &&
         o.price == price &&
-        o.color == color &&
+        // o.color == color &&
         o.image == image &&
         o.description == description;
   }
@@ -90,10 +90,10 @@ class Item {
   @override
   int get hashCode {
     return id.hashCode ^
-        name.hashCode ^
-        desc.hashCode ^
+        title.hashCode ^
+        category.hashCode ^
         price.hashCode ^
-        color.hashCode ^
+        // color.hashCode ^
         image.hashCode ^
         description.hashCode;
   }
