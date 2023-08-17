@@ -1,16 +1,19 @@
-# gadgethive
 
-A new Flutter project.
+# E-commerce
 
-## Getting Started
+The  E-Commerce App is a cutting-edge mobile application designed to provide users with a seamless and intuitive shopping experience. Developed using the Flutter framework, the app offers a robust platform for both customers and sellers, fostering a dynamic online marketplace.
+## API Reference
+### api : https://fakestoreapi.com/docs
+#### Get all items
 
-This project is a starting point for a Flutter application.
+```http
+  GET /api/
+```
 
-A few resources to get you started if this is your first Flutter project:
+| Parameter  | Route                |
+| :-------- | :------------------------- |
+| `/` | Login Page |
+| `/home` | Home Page |
+| `/detail` | Home Detail Page |
+| `/cart` | Cart Page |
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
